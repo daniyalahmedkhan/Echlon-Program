@@ -13,7 +13,7 @@ public class Main extends Functional {
         obj1.RowInput();
         obj1.ColumnInput();
 
-       obj1.MatrixInput();
+        obj1.MatrixInput();
 
 
 

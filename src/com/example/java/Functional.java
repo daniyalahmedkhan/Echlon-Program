@@ -22,20 +22,20 @@ public class Functional {
                 input.next();
 
 
-        }
-        row = input.nextInt();
-    //    input.close();
+            }
+            row = input.nextInt();
+            //    input.close();
 
 
-        if ((row <=0))
-        {
+            if ((row <=0))
+            {
 
-            System.out.println("Please Enter Positive");
+                System.out.println("Please Enter Positive");
 
-        }
+            }
 
 
-       }while ((row <=0)) ;
+        }while ((row <=0)) ;
 
     }
 
@@ -68,7 +68,7 @@ public class Functional {
 
 
         }while ((column <=0)) ;
-       // input.close();
+        // input.close();
 
     }
 
@@ -87,11 +87,32 @@ public class Functional {
 
                 System.out.println("Enter for Matrix" + "["+i+"]" + "["+j+"]");
 
-                    Matrix[i][j]  = input.nextDouble();
+                Matrix[i][j]  = input.nextDouble();
 
 
             }
         }
+
+        if (!(Matrix[0][0] == 1)){
+            double divider;
+            divider = Matrix[0][0];
+            for (int i =0; i<1; i++ ){
+
+                for(int j=0; j<5; j++){
+
+
+
+                    Matrix[i][j] = ( Matrix[i][j] / divider );
+
+                    System.out.println(Matrix[i][j]);
+                }
+
+            }
+
+        }
+//
+
+
 
 
     }
