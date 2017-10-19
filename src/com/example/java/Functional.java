@@ -7,6 +7,7 @@ import java.util.Scanner;
  */
 public class Functional {
 
+    double factor;
     int row , column;
     public void RowInput(){
 
@@ -93,28 +94,97 @@ public class Functional {
             }
         }
 
-        if (!(Matrix[0][0] == 1)){
-            double divider;
-            divider = Matrix[0][0];
-            for (int i =0; i<1; i++ ){
 
-                for(int j=0; j<5; j++){
+        for(int i =0; i<row; i++){
+
+            double divider = Matrix[i][i];
+
+            for (int j =0; j<column; j++){
+
+                Matrix[i][j] = (Matrix[i][j] / divider);
+            }
+
+          for (int k = i+1; k< row; k++){
+
+
+              factor = Matrix[k][i];
+
+
+              for(int j=0;j<column;j++) /* Loop to subtract each element of row from multiple of its first element and row above */
+              {
+                  Matrix[k][j] = Matrix[k][j] - (Matrix[i][j] * factor);
+              }
+              //Matrix[k][i]   =  Matrix[k][i]  -  ( Matrix[k][i] * Matrix[i][k-1]);
 
 
 
-                    Matrix[i][j] = ( Matrix[i][j] / divider );
+          }
 
-                    System.out.println(Matrix[i][j]);
+
+        }
+
+        for(int i=3;i>=0;i--)		/* Loop for rows */
+        {
+            for(int k=i-1;k>=0;k--)	/* Loop for remaining row below current row to make elements zero  */
+            {
+                factor = Matrix[k][i];
+                for(int j=0;j<5;j++) /* Loop to subtract each element of row from multiple of its first element and row above */
+                {
+                    Matrix[k][j] = Matrix[k][j] - (Matrix[i][j] * factor);
                 }
 
             }
-
         }
+
+
+        for (int i =0; i<row; i++ ){
+
+                for(int j=0; j<column; j++){
+
+                    System.out.print(Matrix[i][j] + "\t\t");
+                }
+            System.out.println("");
+            }
+
+
+//        if (!(Matrix[0][0] == 1)){
 //
+//
+//            for (int i =0; i<1; i++ ){
+//
+//                for(int j=0; j<column; j++){
+//                    final double divider;
+//                    divider = Matrix[i][j];
+//
+//
+//                    Matrix[i][j] = ( Matrix[i][j] / divider );
+//
+//                    System.out.println(Matrix[i][j]);
+//                }
+//
+//            }
 
+//        }else {
+//
+//
+//            for (int i=0; i<1; i++){
+//
+//                for (int j=0; j<5; j++){
+//
+//
+//
+//                    Matrix[i+1][j]  =    Matrix[i+1][j]- (Matrix[1][0] * Matrix[i][j]);
+//
+//                }
+//
+//            }
 
+      //  }
 
 
     }
 
 }
+
+// Change hardcoded loop to row and column so it will work for all echelon
+// Check last else condition for R2
